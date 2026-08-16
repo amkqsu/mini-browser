@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/tabBar"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <ImageButton android:id="@+id/btnBack" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_media_previous" android:background="@android:color/transparent"/>
+        <ImageButton android:id="@+id/btnForward" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_media_next" android:background="@android:color/transparent"/>
+        <ImageButton android:id="@+id/btnReload" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_popup_sync" android:background="@android:color/transparent"/>
+
+        <EditText
+            android:id="@+id/urlBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="adres veya arama yaz"
+            android:singleLine="true"
+            android:imeOptions="actionGo"/>
+
+        <ImageButton android:id="@+id/btnNewTab" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_menu_add" android:background="@android:color/transparent"/>
+        <ImageButton android:id="@+id/btnBookmarkAdd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/btn_star" android:background="@android:color/transparent"/>
+        <ImageButton android:id="@+id/btnBookmarkList" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_menu_agenda" android:background="@android:color/transparent"/>
+        <ToggleButton
+            android:id="@+id/btnIncognito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Gizli:ON"
+            android:textOff="Gizli:OFF"
+            android:textSize="10sp"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/webContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
