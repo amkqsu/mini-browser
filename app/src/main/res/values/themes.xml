@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.DogonBrowser" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/neon_purple</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/neon_purple</item>
+        <item name="android:colorBackground">@color/bg_root</item>
+        <item name="android:windowBackground">@color/bg_root</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="alertDialogTheme">@style/Theme.DogonBrowser.Dialog</item>
+    </style>
+
+    <style name="Theme.DogonBrowser.Dialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:windowBackground">@color/bg_surface</item>
+        <item name="colorAccent">@color/neon_purple</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+    </style>
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <color name="black">#000000</color>
+    <color name="bg_root">#000000</color>
+    <color name="bg_surface">#0D0D0F</color>
+    <color name="bg_surface_2">#141416</color>
+    <color name="neon_purple">#B14BFF</color>
+    <color name="neon_purple_dim">#6A2E9C</color>
+    <color name="neon_purple_glow">#3D1A66</color>
+    <color name="text_primary">#F2F0F5</color>
+    <color name="text_secondary">#8A8792</color>
+    <color name="divider">#1E1E22</color>
+</resources>

@@ -2,54 +2,211 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_root"
+    android:fitsSystemWindows="true">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/tabBar"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp"/>
-    </HorizontalScrollView>
-
+    <!-- Top: logo + tab strip + new tab -->
     <LinearLayout
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp">
+        android:layout_height="48dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="4dp">
 
-        <ImageButton android:id="@+id/btnBack" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_media_previous" android:background="@android:color/transparent"/>
-        <ImageButton android:id="@+id/btnForward" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_media_next" android:background="@android:color/transparent"/>
-        <ImageButton android:id="@+id/btnReload" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_popup_sync" android:background="@android:color/transparent"/>
-
-        <EditText
-            android:id="@+id/urlBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="adres veya arama yaz"
-            android:singleLine="true"
-            android:imeOptions="actionGo"/>
-
-        <ImageButton android:id="@+id/btnNewTab" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_menu_add" android:background="@android:color/transparent"/>
-        <ImageButton android:id="@+id/btnBookmarkAdd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/btn_star" android:background="@android:color/transparent"/>
-        <ImageButton android:id="@+id/btnBookmarkList" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@android:drawable/ic_menu_agenda" android:background="@android:color/transparent"/>
-        <ToggleButton
-            android:id="@+id/btnIncognito"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textOn="Gizli:ON"
-            android:textOff="Gizli:OFF"
-            android:textSize="10sp"/>
+            android:text="Dogon"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Browser"
+            android:textColor="@color/neon_purple"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginStart="2dp"/>
+
+        <HorizontalScrollView
+            android:id="@+id/tabScroll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="none"
+            android:layout_marginStart="10dp">
+            <LinearLayout
+                android:id="@+id/tabBar"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </HorizontalScrollView>
+
+        <ImageButton
+            android:id="@+id/btnNewTab"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="6dp"
+            android:src="@drawable/ic_add"
+            android:background="@drawable/bg_icon_btn_ripple"
+            android:contentDescription="Yeni sekme"/>
     </LinearLayout>
+
+    <!-- thin neon progress bar -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="2.5dp"
+        android:background="@drawable/bg_progress_track">
+        <View
+            android:id="@+id/progressFill"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@drawable/bg_progress_fill"/>
+    </FrameLayout>
+
+    <!-- Address bar row -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="8dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:background="@drawable/bg_icon_btn_ripple"/>
+
+        <ImageButton
+            android:id="@+id/btnForward"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_forward"
+            android:background="@drawable/bg_icon_btn_ripple"/>
+
+        <FrameLayout
+            android:id="@+id/urlBarWrap"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="6dp"
+            android:background="@drawable/bg_urlbar">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="12dp"
+                android:paddingEnd="10dp">
+
+                <ImageView
+                    android:id="@+id/iconLock"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_lock"
+                    android:layout_marginEnd="8dp"
+                    android:alpha="0.9"/>
+
+                <EditText
+                    android:id="@+id/urlBar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="Ara veya adres yaz"
+                    android:textColorHint="@color/text_secondary"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14.5sp"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionGo"
+                    android:inputType="textUri"
+                    android:paddingVertical="0dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnReload"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_reload"
+                    android:background="@drawable/bg_icon_btn_ripple"/>
+            </LinearLayout>
+        </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/btnBookmarkAdd"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_star_outline"
+            android:background="@drawable/bg_icon_btn_ripple"/>
+
+        <ImageButton
+            android:id="@+id/btnIncognito"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:padding="7dp"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/ic_incognito"
+            android:background="@drawable/bg_icon_btn_ripple"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider"/>
 
     <FrameLayout
         android:id="@+id/webContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:background="@color/bg_root"/>
+
+    <!-- bottom bar: bookmarks -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@drawable/bg_toolbar"
+        android:paddingHorizontal="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBookmarkList"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:padding="6dp"
+            android:src="@drawable/ic_bookmarks"
+            android:background="@drawable/bg_icon_btn_ripple"/>
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Hazır"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/tabCountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 sekme"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"/>
+    </LinearLayout>
 
 </LinearLayout>
